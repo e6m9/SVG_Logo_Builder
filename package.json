@@ -1,0 +1,31 @@
+{
+  "name": "svg_logo_builder",
+  "description": "Create an SVG logo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e6m9/SVG_Logo_Builder.git"
+  },
+  "keywords": [
+    "svg",
+    "logo",
+    "diy"
+  ],
+  "author": "e6m9",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/e6m9/SVG_Logo_Builder/issues"
+  },
+  "homepage": "https://github.com/e6m9/SVG_Logo_Builder#readme",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "inquirer": "^9.2.12"
+  }
+}
