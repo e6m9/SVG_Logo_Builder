@@ -22,10 +22,11 @@
   },
   "homepage": "https://github.com/e6m9/SVG_Logo_Builder#readme",
   "devDependencies": {
+    "@types/node": "^20.10.6",
     "jest": "^29.7.0",
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "inquirer": "^9.2.12"
+    "inquirer": "^8.2.4"
   }
 }
