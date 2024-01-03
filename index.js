@@ -2,6 +2,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const path = require('path');
+const { Shape, circle, triangle, square } = require('./lib/shapes')
 
 inquirer
     .prompt([
@@ -9,7 +10,23 @@ inquirer
             type: 'input',
             name: 'name',
             message: 'please enter up to 3 characters for yr logo text...'
-        }
+        },
+        {
+            type: 'input',
+            name: 'textColor',
+            message: 'please enter a color for the text (hex code is acceptable)...'
+        },
+        {
+            type: 'list',
+            name: 'shape',
+            message: 'please choose one of the following shapes...',
+            choices: ['circle', 'square', 'triangle']
+        },
+        {
+            type: 'input',
+            name: 'shapeColor',
+            message: 'please enter a color for the shape (hex code is acceptable)...'
+        },
     ])
     .then((data) => {
         const folderPath = 'logos';
@@ -31,18 +48,31 @@ inquirer
 
         if (data.name.length > 3) {
             console.log('Please enter no more than 3 characters for yr logo text...');
+            return;
         } else {
-            const userData = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="150" cy="100" r="80" fill="green" />
-        <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">${data.name}</text></svg>`;
-
-        fs.writeFile(filePath, userData, (err) => {
-            if (err) {
-                console.error(`Error: ${err}`);
-            } else {
-                console.log(`Success! File ${fileName} has been written.`);
+            let selectedShape;
+            switch (data.shape) {
+                case 'circle':
+                    selectedShape = circle;
+                    break;
+                case 'triangle':
+                    selectedShape = triangle;
+                    break;
+                case 'square':
+                    selectedShape = square;
+                    break;
             }
-        });
-    }
-});
-``
+
+            const userData = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+        <${selectedShape.coordinate} fill="${data.shapeColor}"/>
+        <text x="150" y="125" font-size="60" text-anchor="middle" fill="${data.textColor}">${data.name}</text></svg>`;
+
+            fs.writeFile(filePath, userData, (err) => {
+                if (err) {
+                    console.error(`Error: ${err}`);
+                } else {
+                    console.log(`Success! File ${fileName} has been written. You would get an infinitely better logo if you paid a graphic designer, though.`);
+                }
+            });
+        }
+    });
