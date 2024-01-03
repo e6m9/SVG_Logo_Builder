@@ -2,7 +2,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const path = require('path');
-const { Shape, circle, triangle, square } = require('./lib/shapes')
+const { Shape } = require('./lib/shapes.js')
 
 inquirer
     .prompt([
@@ -49,30 +49,20 @@ inquirer
         if (data.name.length > 3) {
             console.log('Please enter no more than 3 characters for yr logo text...');
             return;
-        } else {
-            let selectedShape;
-            switch (data.shape) {
-                case 'circle':
-                    selectedShape = circle;
-                    break;
-                case 'triangle':
-                    selectedShape = triangle;
-                    break;
-                case 'square':
-                    selectedShape = square;
-                    break;
-            }
-
-            const userData = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-        <${selectedShape.coordinate} fill="${data.shapeColor}"/>
-        <text x="150" y="125" font-size="60" text-anchor="middle" fill="${data.textColor}">${data.name}</text></svg>`;
-
-            fs.writeFile(filePath, userData, (err) => {
-                if (err) {
-                    console.error(`Error: ${err}`);
-                } else {
-                    console.log(`Success! File ${fileName} has been written. You would get an infinitely better logo if you paid a graphic designer, though.`);
-                }
-            });
         }
-    });
+
+        const shape = new Shape(data.shape);
+        shape.setColor(data.shapeColor);
+
+        const userData = shape.render() +
+            `<text x="150" y="125" font-size="60" text-anchor="middle" fill="${data.textColor}">${data.name}</text></svg>`;
+
+        fs.writeFile(filePath, userData, (err) => {
+            if (err) {
+                console.error(`Error: ${err}`);
+            } else {
+                console.log(`Generated ${fileName}! You would get an infinitely better logo if you paid a graphic designer, though.`);
+            }
+        });
+    }
+    );
