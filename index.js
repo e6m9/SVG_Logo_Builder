@@ -54,9 +54,11 @@ inquirer
         const shape = new Shape(data.shape);
         shape.setColor(data.shapeColor);
 
-        const userData = shape.render() +
-            `<text x="150" y="125" font-size="60" text-anchor="middle" fill="${data.textColor}">${data.name}</text></svg>`;
+        const userData = `${shape.render()}
+    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${data.textColor}">${data.name}</text>
+</svg>`;
 
+console.log(userData);
         fs.writeFile(filePath, userData, (err) => {
             if (err) {
                 console.error(`Error: ${err}`);

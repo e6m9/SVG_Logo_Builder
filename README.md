@@ -1,6 +1,48 @@
 # SVG_Logo_Builder
 Create an SVG logo
 
+## Description
+Command-line application meant to generate a simple log as an svg file
+
+## Table of Contents
+
+- [Usage](#usage)
+- [License](#license)
+- [Tests](#tests)
+- [Acknowledgements](#acknowledgements)
+- [Author](#author)
+- [Contact](#contact)
+
+## Usage
+
+In lieu of paying a graphic artist for a logo, one can generate a very rudimentary representation of a logo by typing 'node index.js' into the command line and answering a few prompts. You can see your 'logo' when you open the logo.svg file, that has been created in the logos folder, in a browser.
+
+## License
+
+See the License file for license information.
+
+## Tests
+Make sure you have Jest installed, then type 'npm test' into the command line to run tests
+
+## Acknowledgements
+
+This application utilizes the following packages
+
+- Inquirer
+- Jest
+
+## Author
+
+- Ashley Maximillian
+- https://github.com/e6m9
+
+## Contact
+
+For any inquiries, please send yr emails to:
+
+- alostsound@gmail.com
+
+
 
 # 10 Object-oriented Programming: SVG Logo Maker
 
