@@ -18,7 +18,7 @@ Command-line application meant to generate a simple log as an svg file
 ## Usage
 In lieu of paying a graphic artist for a logo, one can generate a very rudimentary representation of a logo by typing 'node index.js' into the command line and answering a few prompts. You can see your 'logo' when you open the logo.svg file, that has been created in the logos folder, in a browser. Each time you run the application, a new image will ge generated without overwriting the previous one.
 
-
+[link-to-video](https://drive.google.com/file/d/1-0wiH2gJx_QZPHtjjML8twzzZ8kh59sd/view?usp=drive_link)
 
 ## License
 See the License file for license information.
