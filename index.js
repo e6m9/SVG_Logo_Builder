@@ -56,7 +56,7 @@ async function run() {
     ]);
 
     // upon successful completion, a logos folder is created with a logo.svg file inside it
-    const folderPath = 'logos';
+    const folderPath = 'examples';
     const baseFileName = 'logo';
     let fileName;
 
