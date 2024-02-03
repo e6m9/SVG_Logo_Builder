@@ -21,7 +21,7 @@ async function run() {
         // accepts 3 characters, incudes a check for more than 3 characters that resends the prompt if the check comes back as true
         {
             type: 'input',
-            name: 'name',
+            name: 'text',
             message: 'Please enter up to 3 characters for your logo text...',
             validate: function (input) {
                 if (input.length > 3) {
@@ -77,11 +77,11 @@ async function run() {
     // uses code from the imported shapes.js to create a new shape using the user inputed data
     const shape = new Shape(data.shape);
     shape.setColor(data.shapeColor);
+    shape.setTextColor(data.textColor);
+    shape.setText(data.text);
 
-    // renders the user shape and text 
-    const userData = `${shape.render()}
-    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${data.textColor}">${data.name}</text>
-</svg>`;
+    // plugs the userData into the shape render function
+    const userData = `${shape.render()}`;
 
     // writes the rendered logo to an svg file
     fs.writeFile(filePath, userData, (err) => {
